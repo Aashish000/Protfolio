@@ -1,0 +1,135 @@
+<html>
+<head>
+	<title>Contact::Protfolio</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet"  href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+	<script src="assets/sweetjs/dist/sweetalert.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="assets/sweetjs/dist/sweetalert.css">
+	<script src="assets/js/jquery.min.js" ></script>  
+	<script src="assets/js/bootstrap.min.js" ></script>
+</head>
+<style>
+.navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+   .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  </style>
+<body>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Aashish::Protfolio</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-fixed-top">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="portfolio.html">Protfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  
+</nav>
+<div class=>
+<div class="container">
+	<div id="map" style="width: 900px; height: 400px"></div>
+
+    <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+
+    <script>
+    var map = L.map('map').setView([27.674711 , 85.345745], 15);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://openstreetmap.org">Openstreetmap</a>'
+    }).addTo(map);
+    L.marker([27.674711 , 85.345745]).addTo(map)
+      .bindPopup("Aashish").openPopup();
+    
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent("MY Home " + e.latlng.toString())
+        .openOn(map);
+    }
+    map.on('click', onMapClick);
+</script>  
+	<h1> Contact Us </h1>
+	<script type="text/javascript">
+   <!--
+      // Form validation code will come here.
+      function validate()
+      {
+      
+         if( document.myForm.first_name.value == "" )
+         {
+            sweetAlert( "Please provide your first name!" );
+            document.myForm.first_name.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.last_name.value == "" )
+         {
+            sweetAlert( "Please provide your Last Name!" );
+            document.myForm.last_name.focus() ;
+            return false;
+         }
+              
+         var email = document.myForm.email.value;
+          atpos = email.indexOf("@");
+         dotpos = email.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            sweetAlert("Please enter correct email ID")
+            document.myForm.email.focus() ;
+            return false;
+         }
+         return( true );
+
+    	return false;
+      }
+   //-->
+</script>
+	<form action="#" name="myForm" onsubmit="return(validate());" role="form">        
+              <div class="form-group">
+              	<label> First Name </label>
+               <input type="text" name="first_name" id="first_name" class="form-control"/>
+               </div>
+            
+               <div class="form-group">
+              	 <label> Last Name </label>
+               	 <input type="text" name="last_name" id="last_name" class="form-control"/>
+               </div>
+            
+            <div class="form-group">
+              	<label> Email </label>
+               <input type="text" name="email" id="email" class="form-control"/>
+               </div>
+            
+            <div class="form-group">
+              	<label> Contact No. </label>
+               <input type="number" name="contact_number" id="contact_number" class="form-control"/>
+               </div>
+            
+            <button type="submit" class="btn btn-primary"> Submit </button>
+            
+        
+      </form>
+	
+</div>
+</body>
+</html>
